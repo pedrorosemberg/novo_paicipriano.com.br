@@ -12,13 +12,13 @@ app.get('/', (req, res) => {
 
 // Rota para erro 404 - Página não encontrada
 app.use((req, res) => {
-    res.status(404).sendFile(path.join(__dirname, 'public', '404.html'));
+    res.status(404).sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 // Rota para erro 500 - Erro interno do servidor
 app.use((err, req, res, next) => {
     console.error(err.stack);
-    res.status(500).sendFile(path.join(__dirname, 'public', '500.html'));
+    res.status(500).sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 // Iniciar o servidor na porta 3000
