@@ -1,1 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Em Manutenção — Instituto Pai Cipriano</title>
+    <link rel="canonical" href="https://www.paicipriano.com.br/manutencao.html" />
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --vermelho: #730E16;
+            --ocre: #D9A036;
+            --ambar: #A9730E;
+            --fundo: #F4F4F4;
+            --texto: #0D0D0D;
+            --branco: #FFFFFF;
+            --header-height: 80px;
+        }
 
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--fundo);
+            color: var(--texto);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* HEADER */
+        .site-header {
+            background-color: var(--branco);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            padding: 0 32px;
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .site-header .logo {
+            height: 65px;
+            width: auto;
+            display: block;
+        }
+
+        /* MAIN */
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 24px;
+        }
+
+        .manutencao-wrapper {
+            text-align: center;
+            max-width: 640px;
+        }
+
+        /* Ornamento */
+        .ornamento {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeUp 0.8s ease 0.2s forwards;
+        }
+
+        .ornamento-linha {
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--ocre));
+        }
+
+        .ornamento-linha.direita {
+            background: linear-gradient(to left, transparent, var(--ocre));
+        }
+
+        .ornamento-simbolo {
+            width: 12px;
+            height: 12px;
+            background-color: var(--ocre);
+            transform: rotate(45deg);
+            animation: pulso 3s ease-in-out infinite;
+        }
+
+        .subtitulo {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--ocre);
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeUp 0.8s ease 0.4s forwards;
+        }
+
+        .titulo-manutencao {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.4rem, 6vw, 3.8rem);
+            font-weight: 300;
+            color: var(--vermelho);
+            line-height: 1.15;
+            letter-spacing: 0.01em;
+            margin-bottom: 36px;
+            opacity: 0;
+            animation: fadeUp 0.8s ease 0.55s forwards;
+        }
+
+        .titulo-manutencao em {
+            font-style: italic;
+            color: var(--ambar);
+        }
+
+        .divisor {
+            width: 48px;
+            height: 2px;
+            background-color: var(--ocre);
+            margin: 0 auto 36px;
+            opacity: 0;
+            animation: fadeUp 0.8s ease 0.7s forwards;
+        }
+
+        .mensagem {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+            font-weight: 300;
+            line-height: 1.85;
+            color: #3a3a3a;
+            margin-bottom: 48px;
+            opacity: 0;
+            animation: fadeUp 0.8s ease 0.85s forwards;
+        }
+
+        .previsao-bloco {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            background-color: var(--vermelho);
+            color: var(--branco);
+            padding: 16px 32px;
+            border-radius: 2px;
+            opacity: 0;
+            animation: fadeUp 0.8s ease 1s forwards;
+        }
+
+        .previsao-bloco svg {
+            flex-shrink: 0;
+            opacity: 0.7;
+        }
+
+        .previsao-texto {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.78rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        .previsao-texto strong {
+            display: block;
+            font-size: 0.88rem;
+            letter-spacing: 0.06em;
+        }
+
+        @keyframes pulso {
+            0%, 100% { transform: rotate(45deg) scale(1); }
+            50%       { transform: rotate(45deg) scale(1.4); }
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(18px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* FOOTER */
+        .site-footer {
+            background-color: var(--vermelho);
+            padding: 20px 32px;
+        }
+
+        .footer-copyright {
+            text-align: center;
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.7;
+        }
+
+        .footer-copyright a {
+            color: var(--ocre);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-copyright a:hover { color: #fff; }
+
+        @media (max-width: 480px) {
+            .site-header { padding: 0 20px; }
+            .previsao-bloco { flex-direction: column; text-align: center; gap: 10px; }
+            .previsao-texto { text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <a href="/index.html" aria-label="Página Inicial do Instituto Pai Cipriano">
+            <img src="/assets/logos/logo.png" alt="Logo do Instituto Pai Cipriano" class="logo">
+        </a>
+    </header>
+
+    <main>
+        <div class="manutencao-wrapper">
+
+            <div class="ornamento">
+                <div class="ornamento-linha"></div>
+                <div class="ornamento-simbolo"></div>
+                <div class="ornamento-linha direita"></div>
+            </div>
+
+            <p class="subtitulo">Site temporariamente indisponível</p>
+
+            <h1 class="titulo-manutencao">
+                Estamos em <em>manutenção</em>
+            </h1>
+
+            <div class="divisor"></div>
+
+            <p class="mensagem">
+                Nosso portal está passando por melhorias para oferecer<br>
+                uma experiência ainda mais acolhedora a você.<br>
+                Em breve estaremos de volta.
+            </p>
+
+            <div class="previsao-bloco">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
+                </svg>
+                <div class="previsao-texto">
+                    Retornaremos em breve
+                    <strong>Agradecemos sua compreensão</strong>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-copyright">
+            <p>© 2023–2026 Instituto Pai Cipriano. Todos os direitos reservados.<br>
+            Desenvolvido por <a href="https://www.metadax.com.br/?utm_source=paicipriano&utm_medium=referral&utm_campaign=link_externo" target="_blank" rel="noopener noreferrer">🇧🇷 METADAX</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>
